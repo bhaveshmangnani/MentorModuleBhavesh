@@ -1,0 +1,13 @@
+.container{
+    justify-content: center;
+    width: 65%;
+}
+
+.ipDiv{
+    width: 60%;
+}
+@media (max-width: 800px){
+    div.container {
+      width: 100%;
+    }
+}

@@ -1,0 +1,87 @@
+
+<div class="container" >
+    <h1 class="my-3">Employee Form</h1>
+
+    <div class="card">
+        <div class="card-header">
+            Information
+        </div>
+
+        <div class="card-body">
+            <form (ngSubmit)="add_emp()" #empForm="ngForm" >
+            <div class="d-flex flex-wrap flex-column">
+                <div class="d-flex  mb-3 justify-content-between">
+                <div>
+                    <label for="emp_id">Employee id:</label>
+                </div>
+                <div class="ipDiv">
+                    <input class="form-control" type="text" name="eid" [(ngModel)] = "eid" id="emp_id" ngModel required >
+                </div>
+                </div>
+
+                <div class="d-flex flex-wrap mb-3 justify-content-between">
+                <div >
+                    <label for="name">Name:</label>
+                </div>
+                <div class="ipDiv">
+                    <input class="form-control" type="text" name="ename" [(ngModel)]= "ename" id="ename" ngModel required minlength="4" >
+                </div>
+                </div>
+
+                <div class="d-flex flex-wrap mb-3 justify-content-between">
+                <div >
+                    <label for="team">Team:</label>
+                </div>
+                <div class="ipDiv">
+                    <input class="form-control" type="text" name="team" [(ngModel)]= "team" id="team" ngModel required >
+                </div>
+                </div>
+
+                <div class="d-flex flex-wrap mb-3 justify-content-between">
+                    <div >
+                        <label for="designation">Designation:</label>
+                    </div>
+                    <div class="ipDiv">
+                        <select id="designation" class="form-select"  name = "fdes" [(ngModel)] = "fdes" ngModel required>
+                        <option *ngFor = "let des of designation" [value] = "des">{{des}}</option>
+                    </select>
+                    </div>
+                </div>
+
+                <div class="d-flex flex-wrap mb-3">
+                    <div class="me-auto">
+                        <label for="gender">Gender:</label>
+                    </div>
+                    <div class="ipDiv d-flex flex-row">
+
+                        <div class="me-3" *ngFor = "let gen of genders">
+                            
+                            <input class= "form-check-input" type="radio" [value]="gen" name = "gender" [(ngModel)]="gender" ngModel required>
+                            <label class = "me-3 ms-1" [for]="gen">{{gen}}</label>
+
+                        </div>
+
+                    </div>
+                
+                </div>
+
+                <div class="d-flex  mb-3 justify-content-between">
+                    <div>
+                        <label for="emp_id">Joining Date:</label>
+                    </div>
+                    <div class="ipDiv form-group">
+                        <input type="text" placeholder="DD/MM/YYYY"  class="form-control" bsDatepicker [bsConfig]="{ isAnimated: true, dateInputFormat: 'DD/MM/YYYY' }" name = "doj" [(ngModel)] = "doj" [maxDate] = "maxDate" ngModel required>
+                    </div>
+                </div>
+                
+
+                
+            </div>
+
+            <button type ="submit" class="btn btn-primary float-end" [disabled] = "!empForm.valid" >Add</button>
+
+            </form>
+        </div>
+        </div>
+
+</div>
