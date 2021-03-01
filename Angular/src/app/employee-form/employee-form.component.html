@@ -15,7 +15,7 @@
                     <label for="emp_id">Employee id:</label>
                 </div>
                 <div class="ipDiv">
-                    <input class="form-control" type="text" name="eid" [(ngModel)] = "eid" id="emp_id" ngModel required >
+                    <input class="form-control" type="text" name="eid" [(ngModel)] = "eid" id="emp_id"  required >
                 </div>
                 </div>
 
@@ -24,7 +24,7 @@
                     <label for="name">Name:</label>
                 </div>
                 <div class="ipDiv">
-                    <input class="form-control" type="text" name="ename" [(ngModel)]= "ename" id="ename" ngModel required minlength="4" >
+                    <input class="form-control" type="text" name="ename" [(ngModel)]= "ename" id="ename" required minlength="4" >
                 </div>
                 </div>
 
@@ -33,7 +33,7 @@
                     <label for="team">Team:</label>
                 </div>
                 <div class="ipDiv">
-                    <input class="form-control" type="text" name="team" [(ngModel)]= "team" id="team" ngModel required >
+                    <input class="form-control" type="text" name="team" [(ngModel)]= "team" id="team" required >
                 </div>
                 </div>
 
@@ -42,7 +42,7 @@
                         <label for="designation">Designation:</label>
                     </div>
                     <div class="ipDiv">
-                        <select id="designation" class="form-select"  name = "fdes" [(ngModel)] = "fdes" ngModel required>
+                        <select id="designation" class="form-select"  name = "fdes" [(ngModel)] = "fdes"  required>
                         <option *ngFor = "let des of designation" [value] = "des">{{des}}</option>
                     </select>
                     </div>
@@ -56,7 +56,7 @@
 
                         <div class="me-3" *ngFor = "let gen of genders">
                             
-                            <input class= "form-check-input" type="radio" [value]="gen" name = "gender" [(ngModel)]="gender" ngModel required>
+                            <input class= "form-check-input" type="radio" [value]="gen" name = "gender" [(ngModel)]="gender" required>
                             <label class = "me-3 ms-1" [for]="gen">{{gen}}</label>
 
                         </div>
@@ -70,7 +70,7 @@
                         <label for="emp_id">Joining Date:</label>
                     </div>
                     <div class="ipDiv form-group">
-                        <input type="text" placeholder="DD/MM/YYYY"  class="form-control" bsDatepicker [bsConfig]="{ isAnimated: true, dateInputFormat: 'DD/MM/YYYY' }" name = "doj" [(ngModel)] = "doj" [maxDate] = "maxDate" ngModel required>
+                        <input type="text" placeholder="DD/MM/YYYY"  class="form-control" bsDatepicker [bsConfig]="{ isAnimated: true, dateInputFormat: 'DD/MM/YYYY' }" name = "doj" [(ngModel)] = "doj" [maxDate] = "maxDate" required>
                     </div>
                 </div>
                 
