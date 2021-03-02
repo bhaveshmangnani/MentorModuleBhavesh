@@ -11,7 +11,7 @@ export class LoginService {
 
   isLogin = false;
 
-  validate_user(username: string, password: string)
+  validate_user(username: string, password: string): boolean
   {
     if (this.uname ==username && this.pwd == password)
     {

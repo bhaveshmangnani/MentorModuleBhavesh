@@ -10,12 +10,12 @@ export class EmployeeViewService {
 
   private employees: Employee[] = [];
   
-  public addEmp( emp: Employee)
+  public addEmp( emp: Employee): void
   {
     this.employees.push(emp);
   }
 
-  public getEmployees()
+  public getEmployees(): Employee[]
   {
     return this.employees;
   }
