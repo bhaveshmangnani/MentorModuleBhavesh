@@ -8,14 +8,21 @@
         </div>
 
         <div class="card-body">
-            <form (ngSubmit)="add_emp()" #empForm="ngForm" >
+            <form (ngSubmit)="add_emp()" #empForm="ngForm" name="myForm"  >
+                
             <div class="d-flex flex-wrap flex-column">
-                <div class="d-flex  mb-3 justify-content-between">
-                <div>
-                    <label for="emp_id">Employee id:</label>
+                <div class="d-flex  mb-3 justify-content-between form-group has-validation"  >
+                <div class="form-group"   >
+                    <label for="emp_id" class="control-label" >Employee id:</label>
                 </div>
                 <div class="ipDiv">
-                    <input class="form-control" type="text" name="eid" [(ngModel)] = "eid" id="emp_id"  required >
+                    <input class="form-control" type="text"  name="eid" #empid = "ngModel"  [(ngModel)] = "eid" id="emp_id"  [ngClass] = "{ 'is-invalid': empid.invalid && empid.touched    }" required >
+                    <small class="help-block" >
+                        <small *ngIf = "empid.errors &&  empid.touched">
+                            Id is required
+                        </small>
+
+                    </small>
                 </div>
                 </div>
 
@@ -24,7 +31,13 @@
                     <label for="name">Name:</label>
                 </div>
                 <div class="ipDiv">
-                    <input class="form-control" type="text" name="ename" [(ngModel)]= "ename" id="ename" required minlength="4" >
+                    <input class="form-control" type="text" name="ename" [(ngModel)]= "ename" id="ename" required minlength="4"  #empname = "ngModel" [ngClass] = "{ 'is-invalid': empname.invalid && empname.touched  }"  >
+                    <small class="help-block" >
+                        <small *ngIf = "empname.errors &&  empname.touched">
+                            Name is required and must contain atleast 4 characters
+                        </small>
+
+                    </small>
                 </div>
                 </div>
 
@@ -33,7 +46,13 @@
                     <label for="team">Team:</label>
                 </div>
                 <div class="ipDiv">
-                    <input class="form-control" type="text" name="team" [(ngModel)]= "team" id="team" required >
+                    <input class="form-control" type="text" name="team" [(ngModel)]= "team" id="team" required #empteam = "ngModel" [ngClass] = "{ 'is-invalid': empteam.invalid && empteam.touched  }"  >
+                    <small class="help-block" >
+                        <small *ngIf = "empteam.errors &&  empteam.touched">
+                            Team is required
+                        </small>
+
+                    </small>
                 </div>
                 </div>
 
@@ -42,9 +61,15 @@
                         <label for="designation">Designation:</label>
                     </div>
                     <div class="ipDiv">
-                        <select id="designation" class="form-select"  name = "fdes" [(ngModel)] = "fdes"  required>
-                        <option *ngFor = "let des of designation" [value] = "des">{{des}}</option>
-                    </select>
+                        <select id="designation" class="form-select"  name = "fdes" [(ngModel)] = "fdes"  required #empdes = "ngModel" [ngClass] = "{ 'is-invalid': empdes.invalid && empdes.touched  }"  >
+                            <option *ngFor = "let des of designation" [value] = "des">{{des}}</option>
+                        </select>
+                        <small class="help-block" >
+                            <small *ngIf = "empdes.errors &&  empdes.touched">
+                                Select a Designation
+                            </small>
+    
+                        </small>
                     </div>
                 </div>
 
@@ -56,10 +81,16 @@
 
                         <div class="me-3" *ngFor = "let gen of genders">
                             
-                            <input class= "form-check-input" type="radio" [value]="gen" name = "gender" [(ngModel)]="gender" required>
+                            <input class= "form-check-input" type="radio" [value]="gen" name = "gender" [(ngModel)]="gender" required #empgen = "ngModel" [ngClass] = "{ 'is-invalid': empgen.invalid && empgen.touched  }" >
                             <label class = "me-3 ms-1" [for]="gen">{{gen}}</label>
 
                         </div>
+                        <!-- <small class="help-block" >
+                            <small *ngIf = "empgen.errors &&  empgen.touched">
+                                Id is required
+                            </small>
+    
+                        </small> -->
 
                     </div>
                 
@@ -70,7 +101,13 @@
                         <label for="emp_id">Joining Date:</label>
                     </div>
                     <div class="ipDiv form-group">
-                        <input type="text" placeholder="DD/MM/YYYY"  class="form-control" bsDatepicker [bsConfig]="{ isAnimated: true, dateInputFormat: 'DD/MM/YYYY' }" name = "doj" [(ngModel)] = "doj" [maxDate] = "maxDate" required>
+                        <input type="text" placeholder="DD/MM/YYYY"  class="form-control" bsDatepicker [bsConfig]="{ isAnimated: true, dateInputFormat: 'DD/MM/YYYY' }" name = "doj" [(ngModel)] = "doj" [maxDate] = "maxDate" required #empdoj = "ngModel" [ngClass] = "{ 'is-invalid': empdoj.invalid && empdoj.touched  }" >
+                        <small class="help-block" >
+                            <small *ngIf = "empdoj.errors &&  empdoj.touched">
+                                DOJ is required
+                            </small>
+    
+                        </small>
                     </div>
                 </div>
                 

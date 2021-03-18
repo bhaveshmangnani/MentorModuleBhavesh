@@ -13,13 +13,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {BsDatepickerModule, BsDatepickerConfig} from 'ngx-bootstrap/datepicker';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     //LoginComponent,
     EmployeeDirectory,
-    EmployeeFormComponent
+    EmployeeFormComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,8 @@ import { CollapseModule } from 'ngx-bootstrap/collapse';
     CarouselModule,
     CollapseModule,
     BrowserAnimationsModule,
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

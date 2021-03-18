@@ -4,9 +4,9 @@ export class Employee {
     team = '';
     designation = '';
     gender = '';
-    doj = '';
+    doj = new Date('');
 
-    constructor(eid: string, ename: string, team: string, designation: string, gender: string, doj: string){
+    constructor(eid: string, ename: string, team: string, designation: string, gender: string, doj: Date){
         this.eid = eid;
         this.ename = ename;
         this.team = team;

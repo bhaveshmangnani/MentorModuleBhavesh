@@ -5,6 +5,7 @@ import { EmployeeDirectory } from './employee-directory/employee-directory.compo
 import { LoginComponent } from './login/login.component';
 import { EmployeeFormComponent } from './employee-form/employee-form.component';
 import { AuthGuard } from './auth/auth.guard';
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 
 /*const routes: Routes = [
 
@@ -29,8 +30,11 @@ import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
+  
   {path: 'directory', component: EmployeeDirectory, canActivate: [AuthGuard]},
-  {path: 'add', component: EmployeeFormComponent, canActivate: [AuthGuard]}
+  {path: 'add', component: EmployeeFormComponent, canActivate: [AuthGuard]},
+  {path: '**', component: PageNotFoundComponent},
 ];
 
 const routes_test: Routes = [
