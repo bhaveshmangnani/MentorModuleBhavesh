@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebAPI.Controllers
 {
-    [Route("/[controller]")]
+    [Route("/[controller]/[action]")]
     [ApiController]
     public class StringController : Controller
     {

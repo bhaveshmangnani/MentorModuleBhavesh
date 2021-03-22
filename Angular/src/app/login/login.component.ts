@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
 
   display(){
 
-    return this.http.get('https://localhost:44381/string').subscribe( 
+    return this.http.get('https://localhost:44381/string/hw').subscribe( 
       res => { this.data = res }, err =>{ console.log( 'err' + err.toString() ); }
       ) 
   }
