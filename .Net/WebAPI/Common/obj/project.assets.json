@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\BHAVESH\\TSS_MM\\.Net_1\\WebAPI\\Common\\Common.csproj",
+      "projectUniqueName": "D:\\BHAVESH\\TSS_MM\\.Net\\WebAPI\\Common\\Common.csproj",
       "projectName": "Common",
-      "projectPath": "D:\\BHAVESH\\TSS_MM\\.Net_1\\WebAPI\\Common\\Common.csproj",
+      "projectPath": "D:\\BHAVESH\\TSS_MM\\.Net\\WebAPI\\Common\\Common.csproj",
       "packagesPath": "C:\\Users\\BHAVESH MANGNANI\\.nuget\\packages\\",
-      "outputPath": "D:\\BHAVESH\\TSS_MM\\.Net_1\\WebAPI\\Common\\obj\\",
+      "outputPath": "D:\\BHAVESH\\TSS_MM\\.Net\\WebAPI\\Common\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\BHAVESH MANGNANI\\AppData\\Roaming\\NuGet\\NuGet.Config",

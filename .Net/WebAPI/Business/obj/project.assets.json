@@ -32,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\BHAVESH\\TSS_MM\\.Net_1\\WebAPI\\Business\\Business.csproj",
+      "projectUniqueName": "D:\\BHAVESH\\TSS_MM\\.Net\\WebAPI\\Business\\Business.csproj",
       "projectName": "Business",
-      "projectPath": "D:\\BHAVESH\\TSS_MM\\.Net_1\\WebAPI\\Business\\Business.csproj",
+      "projectPath": "D:\\BHAVESH\\TSS_MM\\.Net\\WebAPI\\Business\\Business.csproj",
       "packagesPath": "C:\\Users\\BHAVESH MANGNANI\\.nuget\\packages\\",
-      "outputPath": "D:\\BHAVESH\\TSS_MM\\.Net_1\\WebAPI\\Business\\obj\\",
+      "outputPath": "D:\\BHAVESH\\TSS_MM\\.Net\\WebAPI\\Business\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\BHAVESH MANGNANI\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -53,8 +53,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\BHAVESH\\TSS_MM\\.Net_1\\WebAPI\\Common\\Common.csproj": {
-              "projectPath": "D:\\BHAVESH\\TSS_MM\\.Net_1\\WebAPI\\Common\\Common.csproj"
+            "D:\\BHAVESH\\TSS_MM\\.Net\\WebAPI\\Common\\Common.csproj": {
+              "projectPath": "D:\\BHAVESH\\TSS_MM\\.Net\\WebAPI\\Common\\Common.csproj"
             }
           }
         }
