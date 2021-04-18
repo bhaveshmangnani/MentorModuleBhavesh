@@ -44,7 +44,7 @@ export class ProductComponent implements OnInit {
   }
 
   goToCart(): void{
-    this.cartservice.setCart(this.cart);
+    this.cartservice.setCart(Array.from(this.cart));
     this.router.navigate(['cart']);
   }
 

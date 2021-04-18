@@ -26,6 +26,7 @@ namespace TransactionAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,6 +40,8 @@ namespace TransactionAPI
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors( policy => policy.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin() ) ; 
 
             app.UseAuthorization();
 

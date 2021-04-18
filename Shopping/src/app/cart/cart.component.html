@@ -5,7 +5,7 @@
         </div>
 
         <div>
-            <button class="btn btn-primary"  >Buy</button>
+            <button class="btn btn-primary" (click) = "buyNow()" >Buy</button>
         </div>
     </div>
 
@@ -13,7 +13,7 @@
         
         <div class="col"> {{product.name}} </div>
         <div class="col"> 
-            <input type="number" min="1" value="1"  >
+            <input type="number" min="1" value="1"  [(ngModel)] = "product.availability" >
         </div>
         <br>
         <br>
