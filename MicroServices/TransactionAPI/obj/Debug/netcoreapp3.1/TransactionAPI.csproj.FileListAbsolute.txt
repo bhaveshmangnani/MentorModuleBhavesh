@@ -18,3 +18,8 @@ D:\BHAVESH\TSS_MM\MicroServices\TransactionAPI\obj\Debug\netcoreapp3.1\Transacti
 D:\BHAVESH\TSS_MM\MicroServices\TransactionAPI\obj\Debug\netcoreapp3.1\TransactionAPI.dll
 D:\BHAVESH\TSS_MM\MicroServices\TransactionAPI\obj\Debug\netcoreapp3.1\TransactionAPI.pdb
 D:\BHAVESH\TSS_MM\MicroServices\TransactionAPI\obj\Debug\netcoreapp3.1\TransactionAPI.genruntimeconfig.cache
+D:\BHAVESH\TSS_MM\MicroServices\TransactionAPI\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\BHAVESH\TSS_MM\MicroServices\TransactionAPI\bin\Debug\netcoreapp3.1\System.Net.Http.Extensions.dll
+D:\BHAVESH\TSS_MM\MicroServices\TransactionAPI\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+D:\BHAVESH\TSS_MM\MicroServices\TransactionAPI\bin\Debug\netcoreapp3.1\System.Net.Http.Primitives.dll
+D:\BHAVESH\TSS_MM\MicroServices\TransactionAPI\obj\Debug\netcoreapp3.1\TransactionAPI.csproj.CopyComplete
