@@ -1,0 +1,22 @@
+<div class= "container">
+    <div class = "d-flex me-3 mb-3 mt-3 ms-2 justify-content-between" >
+        <div>
+            <h2>Cart</h2>
+        </div>
+
+        <div>
+            <button class="btn btn-primary"  >Buy</button>
+        </div>
+    </div>
+
+    <div class="row" *ngFor ="let product of cartProducts" >
+        
+        <div class="col"> {{product.name}} </div>
+        <div class="col"> 
+            <input type="number" min="1" value="1"  >
+        </div>
+        <br>
+        <br>
+    </div>
+
+</div>
