@@ -7,3 +7,12 @@ D:\BHAVESH\TSS_MM\.Net_1\WebAPI\Common\obj\Debug\netcoreapp3.1\Common.AssemblyIn
 D:\BHAVESH\TSS_MM\.Net_1\WebAPI\Common\obj\Debug\netcoreapp3.1\Common.csproj.CoreCompileInputs.cache
 D:\BHAVESH\TSS_MM\.Net_1\WebAPI\Common\obj\Debug\netcoreapp3.1\Common.dll
 D:\BHAVESH\TSS_MM\.Net_1\WebAPI\Common\obj\Debug\netcoreapp3.1\Common.pdb
+D:\BHAVESH\TSS_MM\.Net\WebAPI\Common\bin\Debug\netcoreapp3.1\Common.deps.json
+D:\BHAVESH\TSS_MM\.Net\WebAPI\Common\bin\Debug\netcoreapp3.1\Common.dll
+D:\BHAVESH\TSS_MM\.Net\WebAPI\Common\bin\Debug\netcoreapp3.1\Common.pdb
+D:\BHAVESH\TSS_MM\.Net\WebAPI\Common\obj\Debug\netcoreapp3.1\Common.csprojAssemblyReference.cache
+D:\BHAVESH\TSS_MM\.Net\WebAPI\Common\obj\Debug\netcoreapp3.1\Common.AssemblyInfoInputs.cache
+D:\BHAVESH\TSS_MM\.Net\WebAPI\Common\obj\Debug\netcoreapp3.1\Common.AssemblyInfo.cs
+D:\BHAVESH\TSS_MM\.Net\WebAPI\Common\obj\Debug\netcoreapp3.1\Common.csproj.CoreCompileInputs.cache
+D:\BHAVESH\TSS_MM\.Net\WebAPI\Common\obj\Debug\netcoreapp3.1\Common.dll
+D:\BHAVESH\TSS_MM\.Net\WebAPI\Common\obj\Debug\netcoreapp3.1\Common.pdb
