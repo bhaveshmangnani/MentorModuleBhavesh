@@ -9,28 +9,18 @@ import {EmployeeViewService} from '../services/employee-view.service';
   styleUrls: ['./employee-form.component.css']
 })
 export class EmployeeFormComponent implements OnInit {
-  
-
   maxDate = new Date();
-  
   emp = new Employee('', '', '', '', '', new Date());
-
   designation = ['Tester', 'Developer'];
-  
   genders = ['Male', 'Female']
 
   constructor(public router: Router, public empService: EmployeeViewService) { }
-
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   add_emp()
   {
     this.empService.addEmp(this.emp);
-    
     this.router.navigate(['/directory']);
-    
   }
 
 }
