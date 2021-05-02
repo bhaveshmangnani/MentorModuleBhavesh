@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 import { LoginService } from '../services/login.service';
 import {AuthService} from '../auth/auth.service';
 import { Subscription } from 'rxjs';
-/*
+
 import { map } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-*/
+
 
 @Component({
   selector: 'app-login',
@@ -40,25 +40,32 @@ export class LoginComponent implements OnInit {
     this.display();
   }
 
-  login():void
-  {
+  login(){
     var sub2 = this.loginService.validate_user(this.username, this.password).subscribe(
       response =>{
         console.log(response);
         if (response){
-          const redirectUrl = '/directory';
-          this.router.navigate([redirectUrl]);
+          
+          var sub1 = this.authService.login().subscribe(() => {
+          if (this.authService.isLoggedIn) {
+            const redirectUrl = '/directory';
+            this.router.navigate([redirectUrl]);
+          }
+            });
+      
+            this.sub.push(sub1);
+
         }
       },
-      error =>{
+    error =>{
         console.log("error from ", error.message);
         this.loginService.error = "Invalid Credentials ";
         this.error = this.loginService.error;
-      }
-    );
-    this.sub.push(sub2);
-  }
 
+      });
+
+      this.sub.push(sub2);
+  }
 
   logout():void 
   {
