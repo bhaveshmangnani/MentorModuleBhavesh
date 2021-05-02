@@ -22,8 +22,8 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
 
     var sub1  = this.productservice.fetchProducts().subscribe(
-      res => {this.products = res; },
-      error => { console.log(error); }
+      res => this.products = res ,
+      error =>  console.log(error) 
     );
     this.subs.push(sub1)
   }
@@ -32,9 +32,7 @@ export class ProductComponent implements OnInit {
   ngOnDestroy(): void{
     this.subs.forEach( (sub) =>{
       sub.unsubscribe();
-    }
-
-    );
+    });
     
   }
 
@@ -43,7 +41,8 @@ export class ProductComponent implements OnInit {
     this.cart.add(product);
   }
 
-  goToCart(): void{
+  goToCart(): void
+  {
     this.cartservice.setCart(Array.from(this.cart));
     this.router.navigate(['cart']);
   }
