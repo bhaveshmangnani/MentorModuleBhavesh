@@ -22,7 +22,7 @@ export class CartService {
 
   checkOut() :Observable<any>
   {
-    return this.http.post("https://localhost:44365/api/transact", {'products':this.cart});
+    return this.http.post("https://localhost:44365/api/transact", this.cart);
   }
 
 }

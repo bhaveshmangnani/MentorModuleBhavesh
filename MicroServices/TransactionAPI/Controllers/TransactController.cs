@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Formatting;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,50 +15,52 @@ namespace TransactionAPI.Controllers
     [ApiController]
     public class TransactController : ControllerBase
     {
-        private const string URL = "https://localhost:44337/api/product";
+        private readonly string URL = "https://localhost:44337/api/product";
 
+        private readonly HttpClient httpClient;
 
-        // POST api/<TransactController>
-        //[HttpPost]
-        //public IActionResult Post([FromBody] string vale)
-        [HttpGet]
-        public IEnumerable<Models.Product> Get()
+        public TransactController(HttpClient httpClient)
         {
-             
-            HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri(URL);
-
-            // Add an Accept header for JSON format.
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-            // List data response.
-            HttpResponseMessage response = client.GetAsync("").Result;  // Blocking call! Program will wait here until a response is received or a timeout occurs.
+            this.httpClient = httpClient;
+        }
 
 
-            var allProducts = response.Content.ReadAsAsync<IEnumerable<Models.Product>>().Result;  //Make sure to add a reference to System.Net.Http.Formatting.dll
+        
+        [HttpPost]
+        public async Task<ActionResult<IEnumerable<string>>> Post([FromBody] List<Models.Product> cartProducts)
+        {
 
-            return allProducts;
-
-
-            /*bool payment = true;
-            if(payment)
+            var response = await this.httpClient.GetAsync(URL);
+            if(response.IsSuccessStatusCode)
             {
-                if(true)
+                var responseStream = response.Content.ReadAsStringAsync().Result;
+                Console.WriteLine("Here result");
+                var allProducts = JsonConvert.DeserializeObject<List<Models.Product>>(responseStream);
+                foreach(Models.Product product in cartProducts)
                 {
-                    return Ok(true);
+                    Models.Product p = allProducts[product.id - 1];
+                    if(p.availability < product.availability)
+                    {
+                        return BadRequest("Product " + p.name + " not available in suffecient quantity");
+
+                    }
+                    
+                }
+                bool payment = true;
+                if(payment)
+                {
+                    return Ok("Ordered Successfully");
                 }
                 else
                 {
-                    return BadRequest("Insufficent products selecetd");
+                    return BadRequest("Payment Failed");
                 }
-
-
+                
             }
             else
             {
-                return BadRequest("Payment Not Successfull");
-            }*/
-
+                return Unauthorized("Hello");
+            }
             
         }
 
