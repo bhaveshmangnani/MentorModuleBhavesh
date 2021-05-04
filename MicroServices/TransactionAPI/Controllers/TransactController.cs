@@ -15,26 +15,26 @@ namespace TransactionAPI.Controllers
     [ApiController]
     public class TransactController : ControllerBase
     {
-        private readonly string URL = "https://localhost:44337/api/product";
+        
 
         private readonly HttpClient httpClient;
 
-        public TransactController(HttpClient httpClient)
+        public TransactController(HttpClient _httpClient)
         {
-            this.httpClient = httpClient;
+            this.httpClient = _httpClient;
         }
 
 
         
         [HttpPost]
-        public async Task<ActionResult<IEnumerable<string>>> Post([FromBody] List<Models.Product> cartProducts)
+        public async Task<ActionResult<string>> Post([FromBody] List<Models.Product> cartProducts)
         {
-
-            var response = await this.httpClient.GetAsync(URL);
+            Console.WriteLine("Here 1 result");
+            var response = await httpClient.GetAsync("https://localhost:44337/api/Product");
             if(response.IsSuccessStatusCode)
             {
-                var responseStream = response.Content.ReadAsStringAsync().Result;
-                Console.WriteLine("Here result");
+                var responseStream = await response.Content.ReadAsStringAsync();
+                Console.WriteLine("Here 2 result");
                 var allProducts = JsonConvert.DeserializeObject<List<Models.Product>>(responseStream);
                 foreach(Models.Product product in cartProducts)
                 {
@@ -62,6 +62,23 @@ namespace TransactionAPI.Controllers
                 return Unauthorized("Hello");
             }
             
+        }
+
+        [HttpGet]
+        public async Task<List<Models.Product>> Get()
+        {
+            Console.WriteLine("Hello worl");
+            httpClient.BaseAddress = new Uri("https://localhost:44337/");
+            var response = await httpClient.GetAsync("/api/product");
+
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseObj = response.Content.ReadAsStringAsync().Result;
+                var products = JsonConvert.DeserializeObject<List<Models.Product>>(responseObj);
+                return products;
+            }
+            return null;
         }
 
         

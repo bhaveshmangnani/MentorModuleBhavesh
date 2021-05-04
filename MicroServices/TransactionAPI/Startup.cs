@@ -42,7 +42,7 @@ namespace TransactionAPI
 
             app.UseRouting();
 
-            app.UseCors( policy => policy.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin() ) ; 
+            app.UseCors( policy => policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()) ; 
 
             app.UseAuthorization();
 

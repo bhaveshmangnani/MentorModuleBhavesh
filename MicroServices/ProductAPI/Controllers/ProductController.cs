@@ -14,7 +14,7 @@ namespace ProductAPI.Controllers
     {
         
         [HttpGet]
-        public IEnumerable<Model.Product> Get()
+        public List<Model.Product> Get()
         {
             List<Model.Product> products = new List<Model.Product>();
             Model.Product p1 = new Model.Product() { id = 1, name = "Product 1", availability = 10, description = "Product 1 description"};
