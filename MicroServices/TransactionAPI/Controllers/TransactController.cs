@@ -6,6 +6,7 @@ using System.Net.Http.Headers;
 using System.Net.Http.Formatting;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using TransactionAPI.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -17,69 +18,76 @@ namespace TransactionAPI.Controllers
     {
         
 
-        private readonly HttpClient httpClient;
+        private readonly IHttpClientFactory _clientFactory;
 
-        public TransactController(HttpClient _httpClient)
+        public TransactController(IHttpClientFactory clientFactory)
         {
-            this.httpClient = _httpClient;
+            _clientFactory = clientFactory;
         }
 
 
         
         [HttpPost]
-        public async Task<ActionResult<string>> Post([FromBody] List<Models.Product> cartProducts)
+        public async Task<ActionResult<IEnumerable<string>>> Post([FromBody] List<Product> cartProducts)
         {
-            Console.WriteLine("Here 1 result");
+            var httpClient = _clientFactory.CreateClient();
             var response = await httpClient.GetAsync("https://localhost:44337/api/Product");
             if(response.IsSuccessStatusCode)
             {
                 var responseStream = await response.Content.ReadAsStringAsync();
-                Console.WriteLine("Here 2 result");
-                var allProducts = JsonConvert.DeserializeObject<List<Models.Product>>(responseStream);
-                foreach(Models.Product product in cartProducts)
+                var allProducts = JsonConvert.DeserializeObject<List<Product>>(responseStream);
+                foreach(Product product in cartProducts)
                 {
-                    Models.Product p = allProducts[product.id - 1];
-                    if(p.availability < product.availability)
+
+                    Product p = allProducts[product.id - 1];
+                    Console.WriteLine("name = " + product.name);
+                    Console.WriteLine("avaiable = " +p.availability+ " required = "+product.availability);
+                    if (p.availability < product.availability)
                     {
-                        return BadRequest("Product " + p.name + " not available in suffecient quantity");
+                        Console.WriteLine("not available");
+                        return BadRequest(new string[] {  p.name + " not available in suffecient quantity" });
 
                     }
                     
                 }
-                bool payment = true;
-                if(payment)
+                int payment = new Random().Next(0,100)&1;
+                if(payment == 1)
                 {
-                    return Ok("Ordered Successfully");
+                    Console.WriteLine("payed");
+                    return Ok(new string[] { "Ordered Successfully" });
                 }
                 else
                 {
-                    return BadRequest("Payment Failed");
+                    Console.WriteLine("not payed");
+                    return BadRequest(new string[] { "Payment Failed" });
                 }
                 
             }
             else
             {
-                return Unauthorized("Hello");
+                Console.WriteLine("Error");
+                return Unauthorized(new string[] { "Hello" });
             }
             
         }
 
-        [HttpGet]
-        public async Task<List<Models.Product>> Get()
+        /*[HttpGet]
+        public async Task<List<Product>> Get()
         {
             Console.WriteLine("Hello worl");
+            var httpClient = _clientFactory.CreateClient();
             httpClient.BaseAddress = new Uri("https://localhost:44337/");
             var response = await httpClient.GetAsync("/api/product");
 
 
             if (response.IsSuccessStatusCode)
             {
-                var responseObj = response.Content.ReadAsStringAsync().Result;
-                var products = JsonConvert.DeserializeObject<List<Models.Product>>(responseObj);
+                var responseObj = await response.Content.ReadAsStringAsync();
+                var products = JsonConvert.DeserializeObject<List<Product>>(responseObj);
                 return products;
             }
             return null;
-        }
+        }*/
 
         
     }

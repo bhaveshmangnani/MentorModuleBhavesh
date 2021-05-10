@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ProductAPI.Model;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,7 +15,7 @@ namespace ProductAPI.Controllers
     {
         
         [HttpGet]
-        public List<Model.Product> Get()
+        public List<Product> Get()
         {
             List<Model.Product> products = new List<Model.Product>();
             Model.Product p1 = new Model.Product() { id = 1, name = "Product 1", availability = 10, description = "Product 1 description"};
