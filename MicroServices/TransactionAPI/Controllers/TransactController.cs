@@ -71,7 +71,7 @@ namespace TransactionAPI.Controllers
             
         }
 
-        /*[HttpGet]
+        [HttpGet]
         public async Task<List<Product>> Get()
         {
             Console.WriteLine("Hello worl");
@@ -87,7 +87,7 @@ namespace TransactionAPI.Controllers
                 return products;
             }
             return null;
-        }*/
+        }
 
         
     }
