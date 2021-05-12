@@ -8,11 +8,8 @@ namespace ProductAPI.Model
     public class Product
     {
         public int id { get; set; }
-
         public string name { get; set; }
-
         public int availability { get; set; }
-
         public string description { get; set; }
 
     }

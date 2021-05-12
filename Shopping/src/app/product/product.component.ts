@@ -29,14 +29,7 @@ export class ProductComponent implements OnInit {
   }
 
 
-  ngOnDestroy(): void{
-    this.subs.forEach( (sub) =>{
-      sub.unsubscribe();
-    });
-    
-  }
-
-  addToCart(product: Product)
+  addToCart(product: Product): void
   {
     this.cart.add(product);
   }
@@ -45,6 +38,13 @@ export class ProductComponent implements OnInit {
   {
     this.cartservice.setCart(Array.from(this.cart));
     this.router.navigate(['cart']);
+  }
+
+  ngOnDestroy(): void{
+    this.subs.forEach( (sub) =>{
+      sub.unsubscribe();
+    });
+    
   }
 
 }
