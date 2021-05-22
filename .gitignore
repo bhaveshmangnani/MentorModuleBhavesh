@@ -1,3 +1,6 @@
 node_modules
 .vs
 temp
+
+# database
+Shopping_Database
